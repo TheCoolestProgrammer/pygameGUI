@@ -6,7 +6,7 @@
 
 примеры программ можно посмотреть в файлах calc(5).py и vote(5).py
 
-__примечание__: в base_classes(5).py все вхождения Stage были ошибочно названы App
+__ПРИМЕЧАНИЕ__: в base_classes(5).py все вхождения Stage были ошибочно названы App
 
 # структура программы
 
@@ -28,7 +28,7 @@ __примечание__: в base_classes(5).py все вхождения Stage 
 для взаимодействия с виджетами в них определены переменные self.layers_inspector и self.keys_inspector
 
 self.layers_inspector - экземпляр класса LayerInspector(по умолчанию = None), отвечает за работу со слоями(отрисовка и очередность проверки нажатия клавиш)
-__примечание__: если в вашем виджете нет подвиджетов(как, например, есть в Window), то переинициализировать его не надо
+__ПРИМЕЧАНИЕ__: если в вашем виджете нет подвиджетов(как, например, есть в Window), то переинициализировать его не надо
 в self.events_check(app) прога пробегается по self.layers - списку, в котором лежат все подвиджеты и вызывает у них keys_inspector.check_keys()
 
 self.keys_inspector - экземпляр класса KeysInspector - отвечает за взаимодействие с клавишами. 
@@ -38,24 +38,24 @@ self.keys_inspector - экземпляр класса KeysInspector - отвеч
 если же функция вернула false, то вызывается Checker.alternative_func
 
 __ВАЖНО__: функция, которую должен исполнить KeysInspector должна принимать в качестве аргументов виджет, с которым совершается действие и Stage, активный в данный момент
-__примечание__: в Widget.keys_inspector уже в конструкторе добавляются некоторые служебные проверки(например, функция переноса окна призажатии ЛКМ), так что не сотрите их при переинициализации списка  
+__ПРИМЕЧАНИЕ__: в Widget.keys_inspector уже в конструкторе добавляются некоторые служебные проверки(например, функция переноса окна призажатии ЛКМ), так что не сотрите их при переинициализации списка  
 
 например, если мы хотим, чтобы при нажатии ЛКМ на кнопку ии цвет менялся на зеленый, при инициализации экземпляра кнопки нужно в экземпляре кнопки в keys_inspector.checkers добавить CombinationChecker, 
 реагирующий на пересечение мыши с виджетом(IntersectionChecker), нажатие ЛКМ(TouchChecker(1), ведь 1-ЛКМ, 2-колесико, 3-ПКМ, 4-колесико вниз, 5-колесико вверх)
 и чтобы кнопка была доступна для нажатия(тоесть активна(ActiveChecker)) и имеющий ссылку на функцию change_color(widget, stage)
 
-\```python
-  button.keys_inspector.checkers.append(baseClasses.CombinationCheckers(
-       change_color,
-       [baseClasses.IntersectionChecker(),
-       baseClasses.TouchChecker(1),
-       baseClasses.ActiveChecker()]
-     ))
-\```
+```python
+button.keys_inspector.checkers.append(baseClasses.CombinationCheckers(
+     change_color,
+     [baseClasses.IntersectionChecker(),
+     baseClasses.TouchChecker(1),
+     baseClasses.ActiveChecker()]
+   ))
+```
 
 функция cheange_color:
-\```python
+```python
 def change_color(widget,stage):
   widget.color = (0,255,0)
-\```
+```
 
