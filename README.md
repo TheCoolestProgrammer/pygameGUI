@@ -56,6 +56,6 @@ button.keys_inspector.checkers.append(baseClasses.CombinationCheckers(
 функция cheange_color:
 ```python
 def change_color(widget,stage):
-  widget.color = (0,255,0)
+  widget.bg_color = (0,255,0)
 ```
 
