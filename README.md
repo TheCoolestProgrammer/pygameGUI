@@ -58,4 +58,4 @@ button.keys_inspector.checkers.append(baseClasses.CombinationCheckers(
 def change_color(widget,stage):
   widget.bg_color = (0,255,0)
 ```
-
+в 6 версии поменял стандарты для виджетов, наконец-то подружил свой старый проект https://github.com/TheCoolestProgrammer/scaling_space с виджетами, да и всякого по мелочи, в качестве примера написал калькулятор с графиками(правда до ввода формаул графика руки не дошли еще)
